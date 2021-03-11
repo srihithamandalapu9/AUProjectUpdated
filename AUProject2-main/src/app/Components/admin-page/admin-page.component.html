@@ -1,0 +1,48 @@
+<div class="navbar">
+  <button class="right" (click)="logout()">Logout</button>
+</div>
+
+<div class="sidenav">
+  <h2>Accolite - Admin Page</h2>
+  <div class="inner">
+    <div>
+      <button (click)="changeView('Home')">Home</button>
+    </div>
+    <div class="clickables">
+      <button (click)="toggleClick()">Category</button>
+      <div *ngIf="!clicked" class="category">
+        <div *ngFor="let category of category_list" class="category-inner">
+          <button (click)="changeCategory('catvid', category.categoryId)">
+            {{ category.categoryName }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="clickables" (click)="changeView('reportedVideo')">
+      <button>Reported Video</button>
+    </div>
+    <div class="clickables" (click)="changeView('recom')">
+      <button>Reported Comments</button>
+    </div>
+    <div class="clickables" (click)="changeView('unvid')">
+      <button>UnApproved Videos</button>
+    </div>
+
+    <div class="clickables" (click)="uploadVideoAdmin()">
+      <button>Upload a Video</button>
+    </div>
+  </div>
+</div>
+<app-admin-vids
+  [reportedVideos]="reportedVideos"
+  [reportedComments]="reportedComments"
+  [unApprovedVideos]="unApprovedVideos"
+  [clickedOn]="clickedOn"
+  [lengthOfreportedComments]="lengthOfreportedComments"
+  [lengthOfreportedVideos]="lengthOfreportedVideos"
+  [lengthOfunApprovedVideos]="lengthOfunApprovedVideos"
+  [clickedView]="clickedView"
+  [allVideos]="allVideos"
+  [categoryVideos]="categoryVideos"
+  [lengthOfAllVideos]="lengthOfAllVideos"
+></app-admin-vids>

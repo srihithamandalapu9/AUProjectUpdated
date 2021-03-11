@@ -1,0 +1,12 @@
+video {
+  top: 25%;
+  left: 25%;
+}
+
+.reportButton {
+  float: right;
+}
+
+.cardBody {
+  width: 100%;
+}

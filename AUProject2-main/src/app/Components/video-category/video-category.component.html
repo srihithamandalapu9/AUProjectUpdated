@@ -1,0 +1,22 @@
+<div style="flex-direction: row">
+  <app-root-nav> </app-root-nav>
+  <div style="margin-left: 200px">
+    <div class="flexing">
+      <div *ngFor="let video of videos" class="card example-card back-all">
+        <div class="card-header">
+          <video width="100%" height="80%" controls="controls">
+            <source [src]="video.videoLink" type="video/mp4" />
+          </video>
+          <div class="card-title">Video title - {{ video.videoTitle }}</div>
+          <div>Video Description - {{ video.videoDesc }}</div>
+          <button
+            class="btn btn-success"
+            [routerLink]="['/view-video', video.videoId, userId]"
+          >
+            open video
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

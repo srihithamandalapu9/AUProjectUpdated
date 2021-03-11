@@ -1,0 +1,121 @@
+<button class="btn btn-dark btnheading">Upload Your Videos Here</button>
+
+<div class="container mt-auto">
+  <div class="card">
+    <div class="card-header">Add New Video</div>
+    <div class="card-body d-flex">
+      <form [formGroup]="userForm" (submit)="saveVideo()">
+        <h3>Title :</h3>
+        <input
+          matInput
+          type="text"
+          class="textstyle"
+          placeholder="Enetr video tile here"
+          formControlName="vTitle"
+          id="vTitle"
+        />
+        <h3>Description :</h3>
+        <input
+          matInput
+          type="text"
+          class="textstyle"
+          placeholder="Enetr video description here"
+          formControlName="vDesc"
+          id="vDesc"
+        />
+        <h3>Category :</h3>
+        <input
+          matInput
+          type="text"
+          class="textstyle"
+          placeholder="Enetr video category here"
+          formControlName="vCat"
+          id="vCat"
+        />
+        <!-- add video upload code-->
+
+        <div class="card-header">
+          Video upload and Download in Angular with Firebase
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Select a file for upload:</h5>
+          <input type="file" (change)="upload($event)" accept=".mp4" />
+          <br /><br />
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped bg-success"
+              role="progressbar"
+              [style.width]="(uploadProgress | async) + '%'"
+              [attr.aria-valuenow]="uploadProgress | async"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <br />
+          <div
+            class="btn-group"
+            role="group"
+            *ngIf="uploadState | async; let state"
+          >
+            <button
+              type="button"
+              class="btn btn-primary rounded"
+              (click)="task.pause()"
+              *ngIf="status === 'Uploading ....'"
+              [disabled]="state === 'paused'"
+              [ngStyle]="{ margin: '15px' }"
+            >
+              Pause
+              <i class="btn fa fa-pause-circle" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary border-danger rounded"
+              (click)="task.cancel()"
+              *ngIf="status === 'Uploading ....'"
+              [disabled]="!(state === 'paused' || state === 'running')"
+              [ngStyle]="{ margin: '15px' }"
+            >
+              Cancel Upload
+              <i class="btn fa fa-stop-circle" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary rounded"
+              (click)="task.resume()"
+              *ngIf="status === 'Uploading ....'"
+              [disabled]="state === 'running'"
+              [ngStyle]="{ margin: '15px' }"
+            >
+              Resume
+              <i class="fa fa-play-circle" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-dark rounded"
+              *ngIf="status === 'Uploading ....'"
+              [ngStyle]="{ margin: '15px' }"
+            >
+              {{ status }}
+              <i class="{{ icon }}" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-success rounded"
+              *ngIf="status === 'Completed'"
+              [ngStyle]="{ margin: '15px' }"
+            >
+              {{ status }}
+              <i class="{{ icon_1 }}" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-info ml-5">Add Video</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="alert alert-success alerting" *ngIf = "edited>0" role="alert">
+  Video Edit Successfull
+</div>

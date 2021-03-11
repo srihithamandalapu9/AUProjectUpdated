@@ -1,0 +1,81 @@
+<mat-toolbar class="app-header">
+  <div>
+    <a href="#" target="_blank" class="positronx">
+      Accolite Knowledge Transfer Platform
+    </a>
+  </div>
+
+  <div class="nav-tool-items">
+    <a
+      mat-button
+      mat-raised-button
+      
+      routerLink="/signup"
+      routerLinkActive="active"
+      class="nav-list btn btn-light"
+      >SignUp</a
+    >
+  </div>
+</mat-toolbar>
+
+<div class="main-wrapper" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Sign In</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="userForm">
+      <mat-card-content>
+        <input
+          type="email"
+          style="padding: 3%"
+          placeholder="Email"
+          formControlName="emailId"
+        />
+
+        <!-- <div
+          *ngIf="emailId!.touched && emailId!.invalid"
+          class="alert alert-danger"
+        >
+          Email is required !
+        </div> -->
+        <input
+          type="password"
+          style="padding: 3%"
+          placeholder="Password"
+          formControlName="password"
+          minLength="8"
+        />
+
+        <!-- <div
+          *ngIf="password!.touched && password!.invalid"
+          class="alert alert-danger" 
+        >
+          Password is required !
+        </div> -->
+      </mat-card-content>
+
+      <div *ngIf="isLoggedin === false">
+        <mat-card-actions>
+          <button
+            [disabled]="!emailId.valid || !password.valid"
+            mat-raised-button
+            color="secondary"
+            class="btn-block"
+            (click)="CallSignIn()"
+          >
+            Sign-in
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            class="btn-block"
+            (click)="loginWithGoogle()"
+          >
+            Login With Google
+          </button>
+        </mat-card-actions>
+      </div>
+    </form>
+  </mat-card>
+</div>

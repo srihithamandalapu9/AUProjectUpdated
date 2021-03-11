@@ -1,0 +1,54 @@
+<mat-toolbar class="app-header">
+  <div>
+    <a href="#" target="_blank" class="positronx">
+      Accolite Knowledge Transfer Platform
+    </a>
+  </div>
+
+  <div class="nav-tool-items">
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="signin"
+      routerLinkActive="active"
+      class="nav-list btn btn-light"
+      
+      >SignIn</a
+    >
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="signup"
+      routerLinkActive="active"
+      class="nav-list btn btn-light"
+      >SignUp</a
+    >
+  </div>
+</mat-toolbar>
+
+<div class="home-cls">
+  <div class="text-container">
+  </div>
+  <img
+    src="https://c4.wallpaperflare.com/wallpaper/116/883/732/students-studying-motivational-minimalism-wallpaper-preview.jpg"
+    alt="welcome"
+  />
+</div>
+
+<!--<div class="container">
+  <div class="row">
+    <div class="col-md-12 py-3">
+      <ngb-carousel *ngIf="event_list">
+        <ng-template ngbSlide *ngFor="let event of past_events">
+          <img [src]="event.img" alt="Random slide">
+          <div class="carousel-caption">
+            <h3>{{ event.eventLocation }}</h3>
+            <p [innerText]="event.eventDescription"></p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</div>-->
+
+<router-outlet></router-outlet>

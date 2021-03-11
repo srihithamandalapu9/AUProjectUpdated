@@ -1,0 +1,71 @@
+<mat-toolbar class="app-header">
+  <div>
+    <a href="#" target="_blank" class="positronx">
+      Accolite Knowledge Transfer Platform
+    </a>
+  </div>
+
+  <div class="nav-tool-items">
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="/signin"
+      routerLinkActive="active"
+      class="nav-list btn btn-light"
+      
+      >SignIn</a
+    >
+    
+  </div>
+</mat-toolbar>
+
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>SignUp</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup] = "userForm">
+      <mat-card-content>
+        <input
+          type = "email"
+          placeholder="Email"
+          formControlName="emailId"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Firstname"
+          formControlName="firstName"
+          required
+          
+        />
+        <input
+          type="text"
+          placeholder="Lastname"
+          formControlName="lastName"
+          required
+        />
+        
+        <input
+          
+          type = "password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+      </mat-card-content>
+
+      <mat-card-actions>
+      <button
+        mat-raised-button
+        class="btn-block"
+        (click)="CallSignUp()"
+        [disabled] = "!emailId!.valid || !firstName!.valid || !lastName!.valid || !password!.valid"
+      >
+        SignUp
+      </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

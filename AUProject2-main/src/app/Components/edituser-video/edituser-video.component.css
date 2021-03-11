@@ -1,0 +1,33 @@
+.textstyle{
+    width: 200px;
+    position:static;
+    box-sizing: border-box;
+    border: 5px solid rgb(10, 10, 10);
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 15px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    transition: 0.4s ease-in-out;
+  }
+
+  input[type=text]:focus {
+    width: 900px;
+  }
+
+  .contain {
+    border-color: black;
+    border-width: 5px;
+  }
+
+.btnheading {
+  font-size: 30px;
+  margin-left: 0%;
+  width : 100%;
+}
+
+.alerting {
+  margin-left : 150px;
+  margin-right: 150px;
+}
